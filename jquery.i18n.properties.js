@@ -331,10 +331,13 @@
             debug('totalFiles: ' + settings.totalFiles);
             debug('filesLoaded: ' + settings.filesLoaded);
         }
-
+        var versionStr = ""
+        if(settings.version) {
+          versionStr = "?v="+settings.version
+        }
   	    if (filename !== null && typeof filename !== 'undefined') {
             $.ajax({
-                url: filename,
+                url: filename+versionStr,
                 async: settings.async,
                 cache: settings.cache,
                 dataType: 'text',
